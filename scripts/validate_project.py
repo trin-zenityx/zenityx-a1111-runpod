@@ -67,6 +67,8 @@ def validate_dockerfile() -> None:
     assert "ENTRYPOINT" in dockerfile
     assert "pip==24.0" in dockerfile
     assert "setuptools==69.5.1" in dockerfile
+    assert "STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git" in dockerfile
+    assert "STABLE_DIFFUSION_COMMIT_HASH=cf1d67a6fd5ea1aa600c4df58e5b47da45f6bdbf" in dockerfile
     assert ":latest" not in dockerfile
 
 
@@ -86,7 +88,7 @@ def validate_runpod_templates() -> int:
         assert template["env"]["WEBUI_AUTH"] == "1", relative
         assert template["env"]["ENABLE_API"] == "0", relative
         assert "WEBUI_PASSWORD" not in template["env"], relative
-        assert template["imageName"].endswith(":0.1.1"), relative
+        assert template["imageName"].endswith(":0.1.2"), relative
         assert template["isPublic"] is False, relative
         assert template["isServerless"] is False, relative
     return len(expected)

@@ -9,6 +9,9 @@ selected assets from their pinned upstream URLs at first startup.
 
 - AUTOMATIC1111 Stable Diffusion WebUI is pinned to the commit documented in
   `Dockerfile` and is licensed under AGPL-3.0.
+- A1111 v1.10.1 references a deleted Stability AI repository. The container
+  pins the same historical commit from the `w-e-w/stablediffusion` mirror,
+  maintained by an A1111 collaborator. That repository declares the MIT license.
 - Extensions are pinned to upstream repositories and commits in
   `manifests/extensions.lock.json`. Each extension remains subject to its own
   upstream license and notices.

@@ -7,7 +7,7 @@ Docker image สำหรับเปิด AUTOMATIC1111 Stable Diffusion WebUI
 Release image สร้างโดย GitHub Actions จาก source repository เดียวกัน:
 
 ```text
-ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.1
+ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.2
 ```
 
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
@@ -73,7 +73,7 @@ Public RunPod template จะไม่ฝังรหัสผ่านร่ว
 ```bash
 docker buildx build \
   --platform linux/amd64 \
-  -t YOUR_DOCKERHUB_USER/zenityx-a1111:0.1.1 \
+  -t YOUR_DOCKERHUB_USER/zenityx-a1111:0.1.2 \
   --push .
 ```
 

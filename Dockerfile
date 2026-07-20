@@ -10,7 +10,9 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PORT=7860 \
     WORKSPACE_ROOT=/workspace \
     ZENITYX_PROFILE=colab \
-    ZENITYX_CONFIG_PRESET=sd15-v2
+    ZENITYX_CONFIG_PRESET=sd15-v2 \
+    STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git \
+    STABLE_DIFFUSION_COMMIT_HASH=cf1d67a6fd5ea1aa600c4df58e5b47da45f6bdbf
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
