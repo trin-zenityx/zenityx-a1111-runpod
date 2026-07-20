@@ -6,8 +6,17 @@ Docker image สำหรับเปิด AUTOMATIC1111 Stable Diffusion WebUI
 
 Release image สร้างโดย GitHub Actions จาก source repository เดียวกัน:
 
+- Source: <https://github.com/trin-zenityx/zenityx-a1111-runpod>
+- Release: <https://github.com/trin-zenityx/zenityx-a1111-runpod/releases/tag/v0.1.2>
+
 ```text
 ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.2
+```
+
+Verified linux/amd64 image digest:
+
+```text
+sha256:de0a5da0347cf6c6e13c6509137b35e8605cb4c3c791729e3f0472cbf2492e84
 ```
 
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
