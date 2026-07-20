@@ -65,6 +65,8 @@ def validate_dockerfile() -> None:
     assert "A1111_COMMIT=82a973c04367123ae98bd9abdf80d9eda9b910e2" in dockerfile
     assert "EXPOSE 7860" in dockerfile
     assert "ENTRYPOINT" in dockerfile
+    assert "pip==24.0" in dockerfile
+    assert "setuptools==69.5.1" in dockerfile
     assert ":latest" not in dockerfile
 
 
@@ -84,6 +86,7 @@ def validate_runpod_templates() -> int:
         assert template["env"]["WEBUI_AUTH"] == "1", relative
         assert template["env"]["ENABLE_API"] == "0", relative
         assert "WEBUI_PASSWORD" not in template["env"], relative
+        assert template["imageName"].endswith(":0.1.1"), relative
         assert template["isPublic"] is False, relative
         assert template["isServerless"] is False, relative
     return len(expected)

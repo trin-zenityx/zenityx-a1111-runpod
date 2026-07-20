@@ -1,6 +1,6 @@
 {
   "name": "ZenityX A1111 Lite",
-  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.0",
+  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.1",
   "category": "NVIDIA",
   "containerDiskInGb": 40,
   "dockerEntrypoint": [],

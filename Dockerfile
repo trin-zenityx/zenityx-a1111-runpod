@@ -39,7 +39,10 @@ RUN apt-get update \
 RUN python3 -m venv /opt/venv
 ENV PATH=/opt/venv/bin:$PATH
 
-RUN python -m pip install --upgrade pip setuptools wheel \
+RUN python -m pip install \
+        pip==24.0 \
+        setuptools==69.5.1 \
+        wheel==0.43.0 \
     && python -m pip install \
         torch==2.6.0+cu124 \
         torchvision==0.21.0+cu124 \
