@@ -1,0 +1,21 @@
+services:
+  a1111:
+    build:
+      context: .
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./workspace:/workspace
+    environment:
+      ZENITYX_PROFILE: lite
+      ZENITYX_CONFIG_PRESET: sd15-v2
+      WEBUI_USERNAME: zenityx
+      # Leave empty to generate a persistent random password in ./workspace.
+      WEBUI_PASSWORD: ${WEBUI_PASSWORD:-}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

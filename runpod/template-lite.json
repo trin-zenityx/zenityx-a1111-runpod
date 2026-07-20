@@ -1,0 +1,25 @@
+{
+  "name": "ZenityX A1111 Lite",
+  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.0",
+  "category": "NVIDIA",
+  "containerDiskInGb": 40,
+  "dockerEntrypoint": [],
+  "dockerStartCmd": [],
+  "env": {
+    "ZENITYX_PROFILE": "lite",
+    "ZENITYX_CONFIG_PRESET": "sd15-v2-thai",
+    "WEBUI_USERNAME": "zenityx",
+    "WEBUI_AUTH": "1",
+    "ENABLE_API": "0",
+    "FORCE_PRESET": "0",
+    "UI_LANGUAGE": "th_TH"
+  },
+  "isPublic": false,
+  "isServerless": false,
+  "ports": [
+    "7860/http"
+  ],
+  "readme": "# ZenityX A1111 Lite\n\nA private AUTOMATIC1111 workspace for each RunPod user. First startup downloads about 5.3 GiB. Open Pod logs to copy the generated WebUI login, then connect to HTTP port 7860. Download important outputs before terminating a Pod unless you attached a Network Volume.",
+  "volumeInGb": 30,
+  "volumeMountPath": "/workspace"
+}

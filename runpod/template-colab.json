@@ -1,0 +1,25 @@
+{
+  "name": "ZenityX A1111 Colab Full",
+  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.0",
+  "category": "NVIDIA",
+  "containerDiskInGb": 40,
+  "dockerEntrypoint": [],
+  "dockerStartCmd": [],
+  "env": {
+    "ZENITYX_PROFILE": "colab",
+    "ZENITYX_CONFIG_PRESET": "sd15-v2-thai",
+    "WEBUI_USERNAME": "zenityx",
+    "WEBUI_AUTH": "1",
+    "ENABLE_API": "0",
+    "FORCE_PRESET": "0",
+    "UI_LANGUAGE": "th_TH"
+  },
+  "isPublic": false,
+  "isServerless": false,
+  "ports": [
+    "7860/http"
+  ],
+  "readme": "# ZenityX A1111 Colab Full\n\nAUTOMATIC1111 with the original SD 1.5 ControlNet and IP-Adapter bundle. First startup downloads about 15 GiB. Open Pod logs to copy the generated WebUI login, then connect to HTTP port 7860. A 50-100 GB Network Volume mounted at /workspace is recommended for continued use.",
+  "volumeInGb": 50,
+  "volumeMountPath": "/workspace"
+}

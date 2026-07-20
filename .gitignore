@@ -1,0 +1,13 @@
+.DS_Store
+.env
+runpod.env
+workspace/
+__pycache__/
+*.py[cod]
+*.log
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+

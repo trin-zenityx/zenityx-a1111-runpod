@@ -1,0 +1,13 @@
+{
+  "outdir_samples": "",
+  "outdir_txt2img_samples": "${WORKSPACE}/outputs/text",
+  "outdir_img2img_samples": "${WORKSPACE}/outputs/image",
+  "outdir_extras_samples": "${WORKSPACE}/outputs/extras",
+  "outdir_grids": "",
+  "outdir_txt2img_grids": "${WORKSPACE}/outputs/grids",
+  "outdir_img2img_grids": "${WORKSPACE}/outputs/grids",
+  "outdir_save": "${WORKSPACE}/outputs/save",
+  "outdir_init_images": "${WORKSPACE}/outputs/init-images",
+  "control_net_models_path": "${WORKSPACE}/models/ControlNet"
+}
+

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "extensions": [
+    {
+      "name": "a1111-sd-webui-tagcomplete",
+      "repository": "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git",
+      "commit": "4170882f90b47be130a0ff9314f663c230b9153d",
+      "default": true
+    },
+    {
+      "name": "ultimate-upscale-for-automatic1111",
+      "repository": "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111.git",
+      "commit": "2322caa480535b1011a1f9c18126d85ea444f146",
+      "default": true
+    },
+    {
+      "name": "sd-webui-infinite-image-browsing",
+      "repository": "https://github.com/zanllp/sd-webui-infinite-image-browsing.git",
+      "commit": "6d039b79e9c56d9820d63d75ca7ee680cf263d99",
+      "default": true
+    },
+    {
+      "name": "sd-webui-controlnet",
+      "repository": "https://github.com/Mikubill/sd-webui-controlnet.git",
+      "commit": "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81",
+      "default": true
+    },
+    {
+      "name": "adetailer",
+      "repository": "https://github.com/Bing-su/adetailer.git",
+      "commit": "3a599f5d4607d8f9d8b9fc5a15526197418dae1a",
+      "default": true
+    },
+    {
+      "name": "batchlinks-webui",
+      "repository": "https://github.com/etherealxx/batchlinks-webui.git",
+      "commit": "d44bbb5e2a043f2eed80c3945c0f2c676e41d0e5",
+      "default": true
+    },
+    {
+      "name": "Config-Presets",
+      "repository": "https://github.com/Zyin055/Config-Presets.git",
+      "commit": "e252e60288b1104a45ea12106d92a8d145364fa1",
+      "default": true
+    },
+    {
+      "name": "sd-webui-animatediff",
+      "repository": "https://github.com/continue-revolution/sd-webui-animatediff.git",
+      "commit": "a88e88912bcbae0531caccfc50fd639f6ea83fd0",
+      "default": false,
+      "enable_env": "EXT_ANIMATEDIFF"
+    },
+    {
+      "name": "sd-webui-prompt-all-in-one",
+      "repository": "https://github.com/Physton/sd-webui-prompt-all-in-one.git",
+      "commit": "d4b37aa4187b40466772b6282d8b28acd5ad77c9",
+      "default": false,
+      "enable_env": "EXT_PROMPT_ALL_IN_ONE"
+    },
+    {
+      "name": "wildcards",
+      "repository": "https://github.com/AUTOMATIC1111/stable-diffusion-webui-wildcards.git",
+      "commit": "d3964a790d13754d3f944c8407cd6ea4ebfb7982",
+      "default": false,
+      "enable_env": "EXT_WILDCARDS"
+    },
+    {
+      "name": "sd-webui-reactor-sfw",
+      "repository": "https://github.com/Gourieff/sd-webui-reactor-sfw.git",
+      "commit": "0788c549ded1dc94346caf7da98aead7d4c27da8",
+      "default": false,
+      "enable_env": "EXT_REACTOR_SFW"
+    },
+    {
+      "name": "stable-diffusion-webui-rembg",
+      "repository": "https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg.git",
+      "commit": "a4c07b857e73f3035f759876797fa6de986def3d",
+      "default": false,
+      "enable_env": "EXT_REMBG"
+    },
+    {
+      "name": "sd-webui-lora-block-weight",
+      "repository": "https://github.com/hako-mikan/sd-webui-lora-block-weight.git",
+      "commit": "b403cb7300f288360023c2a1978b86a361934e24",
+      "default": false,
+      "enable_env": "EXT_LORA_BLOCK_WEIGHT"
+    },
+    {
+      "name": "sd-webui-color-correction-extras",
+      "repository": "https://github.com/light-and-ray/sd-webui-color-correction-extras.git",
+      "commit": "0d86f5a55d5648ca693584a1078761cf8ae26395",
+      "default": false,
+      "enable_env": "EXT_COLOR_CORRECTION"
+    },
+    {
+      "name": "sd-webui-mov2mov",
+      "repository": "https://github.com/Scholar01/sd-webui-mov2mov.git",
+      "commit": "4bb1fbb8bc848d47a3f41711e0839a5c6e5845f5",
+      "default": false,
+      "enable_env": "EXT_MOV2MOV"
+    },
+    {
+      "name": "stable-diffusion-webui-wd14-tagger",
+      "repository": "https://github.com/picobyte/stable-diffusion-webui-wd14-tagger.git",
+      "commit": "e72d984bdbed832ba83e2a443238c3851b9088ae",
+      "default": false,
+      "enable_env": "EXT_WD14_TAGGER"
+    }
+  ]
+}
+

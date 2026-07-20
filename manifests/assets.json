@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "id": "magmix-v80",
+      "kind": "model",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/magmix/resolve/894d17109d931d0eeb75b334cfc6b85bee0cbfec/magmix_v80.safetensors",
+      "destination": "models/Stable-diffusion/magmix_v80.safetensors",
+      "sha256": "63f2b8c3b3abff160aff94421612d948296992b528ba18e00066ba83d26c8127",
+      "size": 5163659036
+    },
+    {
+      "id": "vae-ft-mse-840000",
+      "kind": "model",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/magmix/resolve/894d17109d931d0eeb75b334cfc6b85bee0cbfec/vae-ft-mse-840000-ema-pruned.safetensors",
+      "destination": "models/VAE/vae-ft-mse-840000-ema-pruned.safetensors",
+      "sha256": "735e4c3a447a3255760d7f86845f09f937809baa529c17370d83e4c3758f3c75",
+      "size": 334641190
+    },
+    {
+      "id": "4x-ultrasharp",
+      "kind": "upscaler",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/embed/upscale/resolve/81cdd27cde5c94a05dd4917a8c40002f5f1f35c7/4x-UltraSharp.pth",
+      "destination": "models/ESRGAN/4x-UltraSharp.pth",
+      "sha256": "a5812231fc936b42af08a5edba784195495d303d5b3248c24489ef0c4021fe01",
+      "size": 66961958
+    },
+    {
+      "id": "8x-nmkd-superscale",
+      "kind": "upscaler",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/uwg/upscaler/resolve/f6bace545e358eab5491f8f39b90a2dd42e8cc77/ESRGAN/8x_NMKD-Superscale_150000_G.pth",
+      "destination": "models/ESRGAN/8x_NMKD-Superscale_150000_G.pth",
+      "sha256": "1fb44a906b9bc4dd89d6bf8d1d28e6cc59cc58c2a28251aa88c85a38e72c8507",
+      "size": 67106707
+    },
+    {
+      "id": "8x-nmkd-faces",
+      "kind": "upscaler",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/gemasai/8x_NMKD-Faces_160000_G/resolve/4a4e22ff32c41a8da815c10829bcf7d3f60ae906/8x_NMKD-Faces_160000_G.pth",
+      "destination": "models/ESRGAN/8x_NMKD-Faces_160000_G.pth",
+      "sha256": "0c858e3f3144d108902b12d76d3121283a3be879982eb952ef47519c5f444ab7",
+      "size": 67225967
+    },
+    {
+      "id": "controlnet-canny-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_canny_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_canny_fp16.safetensors",
+      "sha256": "8932b66e15aae835b3490dbf989f56c253104cee08a88bf21283762f557c9f10",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-canny-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_canny_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_canny_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-depth-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11f1p_sd15_depth_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11f1p_sd15_depth_fp16.safetensors",
+      "sha256": "1c4a79aa52fb63f607cb9ff479ea5aa1923b6ceb21267bd14b69bd05d7b617be",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-depth-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11f1p_sd15_depth_fp16.yaml",
+      "destination": "models/ControlNet/control_v11f1p_sd15_depth_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-normalbae-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_normalbae_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_normalbae_fp16.safetensors",
+      "sha256": "79864bfc3a1df58ed35bd92fc8dd1e4d7b85cac424cc427b9049ddc7647cceec",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-normalbae-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_normalbae_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_normalbae_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-mlsd-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_mlsd_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_mlsd_fp16.safetensors",
+      "sha256": "0d689682fcc9341581b788524ab813cda789acdbc16bdbecbd1b9d2221e119b7",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-mlsd-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_mlsd_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_mlsd_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-openpose-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_openpose_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_openpose_fp16.safetensors",
+      "sha256": "4003c1da17b0e4ba444e02140e1c0d83bb24b79e4dcfd613c3a554d38f0f89c7",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-openpose-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_openpose_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_openpose_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-lineart-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_lineart_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_lineart_fp16.safetensors",
+      "sha256": "10559106d1bb8196298b7a81565ede9279295d2b2df15165b9dbe189994def56",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-lineart-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_lineart_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_lineart_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-lineart-anime-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15s2_lineart_anime_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15s2_lineart_anime_fp16.safetensors",
+      "sha256": "067bf845109afdd1049bd9553d44faed1ad53691bd6b5ac9ee31c87466ef7c27",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-lineart-anime-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15s2_lineart_anime_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15s2_lineart_anime_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-inpaint-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_inpaint_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_inpaint_fp16.safetensors",
+      "sha256": "677a4fe351edecd40cd0d7cc210a8686b59d4e55207317f12319ef746a7a5a89",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-inpaint-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_inpaint_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_inpaint_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-scribble-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_scribble_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_scribble_fp16.safetensors",
+      "sha256": "99edfd25b54c18c0ab19fba8c5618f741aac1f8c3101e7fa62cce925ad87ae68",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-scribble-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_scribble_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_scribble_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-softedge-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_softedge_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_softedge_fp16.safetensors",
+      "sha256": "e78fea5b4599fec2ecd7e3f14b171feb290b88200c95d569ec0ff59a19bc3478",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-softedge-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_softedge_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_softedge_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-tile-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11f1e_sd15_tile_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11f1e_sd15_tile_fp16.safetensors",
+      "sha256": "2f31868eedb243a77932e3c63907a6ba0a2058b6d65b5c27b89ee1b7f618ea33",
+      "size": 722601104
+    },
+    {
+      "id": "controlnet-tile-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11f1e_sd15_tile_fp16.yaml",
+      "destination": "models/ControlNet/control_v11f1e_sd15_tile_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-shuffle-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11e_sd15_shuffle_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11e_sd15_shuffle_fp16.safetensors",
+      "sha256": "8cc77ae071888abefd6e80bafce3d2574f9f6f8aac7ab205db98fb12a53c1132",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-shuffle-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11e_sd15_shuffle_fp16.yaml",
+      "destination": "models/ControlNet/control_v11e_sd15_shuffle_fp16.yaml",
+      "size": 1982
+    },
+    {
+      "id": "controlnet-ip2p-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11e_sd15_ip2p_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11e_sd15_ip2p_fp16.safetensors",
+      "sha256": "11e7dbe52a73f66e701c1faa77b8a2cb0ee3abd721e1cae31123f5b299093435",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-ip2p-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11e_sd15_ip2p_fp16.yaml",
+      "destination": "models/ControlNet/control_v11e_sd15_ip2p_fp16.yaml",
+      "size": 1949
+    },
+    {
+      "id": "controlnet-qrcode-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/monster-labs/control_v1p_sd15_qrcode_monster/resolve/560fb7b15d0badb409f8cd578a2bfe63bd4b8046/control_v1p_sd15_qrcode_monster.safetensors",
+      "destination": "models/ControlNet/control_v1p_sd15_qrcode_monster.safetensors",
+      "sha256": "c7f43f70e266153d12f5e1bb1c9e7be3f4513cf0eef0432661b1331bfe11cadf",
+      "size": 722596344
+    },
+    {
+      "id": "controlnet-qrcode-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/monster-labs/control_v1p_sd15_qrcode_monster/resolve/560fb7b15d0badb409f8cd578a2bfe63bd4b8046/control_v1p_sd15_qrcode_monster.yaml",
+      "destination": "models/ControlNet/control_v1p_sd15_qrcode_monster.yaml",
+      "size": 1950
+    },
+    {
+      "id": "ip-adapter-sd15",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/lllyasviel/sd_control_collection/resolve/7cf256327b341fedc82e00b0d7fb5481ad693210/ip-adapter_sd15.pth",
+      "destination": "models/ControlNet/ip-adapter_sd15.pth",
+      "sha256": "a3e0c0b9b5a48326c69508dde8206f957ff5e9379cf392d5a0ae2486b19c9097",
+      "size": 44642819
+    },
+    {
+      "id": "ip-adapter-plus-face-sd15",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/models/ip-adapter-plus-face_sd15.bin",
+      "destination": "models/ControlNet/ip-adapter-plus-face_sd15.pth",
+      "sha256": "aa09c22b49ef63474dcde12f26a35b8b8e9b755b716a553aa29e8dbe8d21e0c9",
+      "size": 98183381
+    },
+    {
+      "id": "ip-adapter-plus-sd15",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/models/ip-adapter-plus_sd15.bin",
+      "destination": "models/ControlNet/ip-adapter-plus_sd15.pth",
+      "sha256": "1cb77fc0613369b66be1531cc452b823a4af7d87ee56956000a69fc39e3817ba",
+      "size": 158033179
+    },
+    {
+      "id": "preset-config-sd15-v2",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/config%20V2/config.json",
+      "destination": ".zenityx/presets/config-sd15-v2.json",
+      "sha256": "15dd99c886d610301612e1d813a85edabe8946390f74e00ca598cd8d005c04ed",
+      "size": 15341
+    },
+    {
+      "id": "preset-config-sd15-v2-thai",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/THAI%20Config/config.json",
+      "destination": ".zenityx/presets/config-sd15-v2-thai.json",
+      "sha256": "acb5a534474b86cb2d31187341b75d49be7f348a3e5db0f82bbea33026c672b6",
+      "size": 17881
+    },
+    {
+      "id": "preset-config-sd15-legacy",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/magmix/resolve/894d17109d931d0eeb75b334cfc6b85bee0cbfec/config.json",
+      "destination": ".zenityx/presets/config-sd15-legacy.json",
+      "sha256": "bba01fd2cb8eff49bf673925cfb0c7b7d5e28a0f206a7d5213d7a216f47a1aa2",
+      "size": 14248
+    },
+    {
+      "id": "preset-config-sdxl",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/XLconfig/config.json",
+      "destination": ".zenityx/presets/config-sdxl.json",
+      "sha256": "e460a918dcbddf3c8304d3be70451d5a59136185b337cf6e9e5c16b3274f360b",
+      "size": 14297
+    },
+    {
+      "id": "preset-ui-sd15-v2",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/V3/ui-config.json",
+      "destination": ".zenityx/presets/ui-config-sd15-v2.json",
+      "sha256": "1a13adaa38d1378930db8919d32cd99eedf20cad87f30603908cd9ffae6905e4",
+      "size": 177078
+    },
+    {
+      "id": "preset-ui-sd15-legacy",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/magmix/resolve/894d17109d931d0eeb75b334cfc6b85bee0cbfec/ui-config.json",
+      "destination": ".zenityx/presets/ui-config-sd15-legacy.json",
+      "sha256": "2e4fe453dc42333f01d38e5a7969112b53ca9ab59c6f280931a50e9b7317f31a",
+      "size": 163352
+    },
+    {
+      "id": "preset-ui-sdxl",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/XLconfig/ui-config.json",
+      "destination": ".zenityx/presets/ui-config-sdxl.json",
+      "sha256": "f0ff093e12d6d4e6ca9d7e06bc8de772b5d59e92c3f5a3d6d31aaf0766ae22a9",
+      "size": 163371
+    },
+    {
+      "id": "preset-styles",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/styles.csv",
+      "destination": ".zenityx/presets/styles.csv",
+      "sha256": "a2e86410fcd539450f1fc00ca7c5f3440e84f8395e7d1bebd283f14b872aa6b3",
+      "size": 594
+    },
+    {
+      "id": "preset-localization-thai",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/th_TH.json",
+      "destination": ".zenityx/presets/th_TH.json",
+      "sha256": "fc0e15fe0fb774f10d6d13f9751ec0b50af71b9a772a8145a1021f6ff39cc58b",
+      "size": 224970
+    },
+    {
+      "id": "config-presets-img2img-components",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/Config-Presets/config-img2img-custom-tracked-components.txt",
+      "destination": ".zenityx/presets/Config-Presets/config-img2img-custom-tracked-components.txt",
+      "sha256": "f2d9321eb2cdd882c1e4aca40c83d12c906c3d20918054b2fe524db3e16af20c",
+      "size": 9270
+    },
+    {
+      "id": "config-presets-img2img-json",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/V3/config-img2img.json",
+      "destination": ".zenityx/presets/Config-Presets/config-img2img.json",
+      "sha256": "6bac03f177103793acb837d100b5a1f82720e684b90a7fde55209f38b22f9473",
+      "size": 5981
+    },
+    {
+      "id": "config-presets-txt2img-components",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/Config-Presets/config-txt2img-custom-tracked-components.txt",
+      "destination": ".zenityx/presets/Config-Presets/config-txt2img-custom-tracked-components.txt",
+      "sha256": "8dd4a3a91300e50933d3f918717434d43d48a31f66103cd9b747af74ff53a8e2",
+      "size": 8007
+    },
+    {
+      "id": "config-presets-txt2img-json",
+      "kind": "preset",
+      "profiles": ["lite", "colab"],
+      "url": "https://huggingface.co/zenityx/ZenityX_SD_Webui_Colab/resolve/fca977674fe830fcf255ee935d2aac4f0139f44e/V3/config-txt2img.json",
+      "destination": ".zenityx/presets/Config-Presets/config-txt2img.json",
+      "sha256": "23dcae57a46e08fae68cda74f9f87d42968037b08facc67be3de0ee0e3c8340d",
+      "size": 1203
+    }
+  ]
+}
+
