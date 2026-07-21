@@ -13,10 +13,10 @@ Release image สร้างโดย GitHub Actions จาก source repositor
 ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.4
 ```
 
-Verified linux/amd64 image digest (เติมหลัง workflow เผยแพร่สำเร็จ):
+Verified linux/amd64 image digest:
 
 ```text
-pending
+sha256:0cc90704a4d148c4333abc3e5e044f8827c91adb3a197131c2ca59c9c6653c3e
 ```
 
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
