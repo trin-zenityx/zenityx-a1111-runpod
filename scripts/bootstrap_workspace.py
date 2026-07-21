@@ -35,6 +35,14 @@ OPTIONAL_INSTALLER = Path(
 )
 SUPPORTED_PROFILES = {"lite", "colab"}
 SUPPORTED_PRESETS = {"sd15-v2", "sd15-v2-thai", "sd15-legacy", "sdxl", "default"}
+OBSOLETE_MANAGED_ASSETS = [
+    {
+        "id": "ip-adapter-clip-h-encoder-pickle",
+        "destination": "models/ControlNet-Preprocessors/clip_vision/clip_h.pth",
+        "sha256": "3d3ec1e66737f77a4f3bc2df3c52eacefc69ce7825e2784183b1d4e9877d9193",
+        "size": 2528481905,
+    }
+]
 
 
 def log(message: str) -> None:
@@ -190,6 +198,21 @@ def ensure_capacity(workspace: Path, assets: list[dict[str, Any]]) -> None:
             f"need about {(required + reserve) / 1024**3:.1f} GiB, "
             f"have {free / 1024**3:.1f} GiB"
         )
+
+
+def remove_obsolete_managed_assets(workspace: Path, dry_run: bool) -> None:
+    for asset in OBSOLETE_MANAGED_ASSETS:
+        destination = asset_destination(workspace, asset["destination"])
+        if not valid_asset(destination, asset, record=False):
+            continue
+        if dry_run:
+            log(f"would remove obsolete managed asset: {asset['id']}")
+            continue
+        destination.unlink()
+        marker = verification_path(destination)
+        if marker.exists():
+            marker.unlink()
+        log(f"removed obsolete managed asset: {asset['id']}")
 
 
 def create_directories(workspace: Path) -> None:
@@ -360,6 +383,7 @@ def main() -> None:
         raise PermissionError(f"Workspace is not writable: {workspace}")
 
     create_directories(workspace)
+    remove_obsolete_managed_assets(workspace, args.dry_run)
     manifest = read_json(ASSET_MANIFEST)
     selected_assets = [
         asset for asset in manifest["assets"] if args.profile in asset["profiles"]

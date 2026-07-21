@@ -378,10 +378,10 @@
       "id": "ip-adapter-clip-h-encoder",
       "kind": "controlnet",
       "profiles": ["colab"],
-      "url": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/models/image_encoder/pytorch_model.bin",
-      "destination": "models/ControlNet-Preprocessors/clip_vision/clip_h.pth",
-      "sha256": "3d3ec1e66737f77a4f3bc2df3c52eacefc69ce7825e2784183b1d4e9877d9193",
-      "size": 2528481905
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/models/image_encoder/model.safetensors",
+      "destination": "models/ControlNet-Preprocessors/clip_vision/clip_h.safetensors",
+      "sha256": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
+      "size": 2528373448
     },
     {
       "id": "preset-config-sd15-v2",

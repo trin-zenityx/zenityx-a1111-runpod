@@ -59,11 +59,14 @@ RUN git clone --filter=blob:none https://github.com/AUTOMATIC1111/stable-diffusi
 RUN mkdir -p /opt/zenityx/manifests /opt/zenityx/scripts
 COPY manifests/extensions.lock.json /opt/zenityx/manifests/extensions.lock.json
 COPY scripts/install_extensions.py /opt/zenityx/scripts/install_extensions.py
+COPY scripts/patch_controlnet_clipvision.py /opt/zenityx/scripts/patch_controlnet_clipvision.py
 
 RUN python /opt/zenityx/scripts/install_extensions.py \
         --manifest /opt/zenityx/manifests/extensions.lock.json \
         --destination /opt/stable-diffusion-webui/extensions \
         --defaults \
+    && python /opt/zenityx/scripts/patch_controlnet_clipvision.py \
+        --target /opt/stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/clipvision/__init__.py \
     && cd /opt/stable-diffusion-webui \
     && python launch.py --skip-torch-cuda-test --xformers --exit
 

@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
-IMAGE_VERSION = "0.1.3"
+IMAGE_VERSION = "0.1.4"
 CONTROLNET_EXTENSION_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
 REQUIRED_CONTROLNET_WEIGHTS = {
     "control_v11e_sd15_ip2p_fp16.safetensors",
@@ -76,7 +76,10 @@ def validate_assets() -> tuple[int, int]:
         and Path(destination).suffix in {".safetensors", ".pth"}
     }
     assert REQUIRED_CONTROLNET_WEIGHTS <= controlnet_weights
-    assert "models/ControlNet-Preprocessors/clip_vision/clip_h.pth" in destinations
+    assert (
+        "models/ControlNet-Preprocessors/clip_vision/clip_h.safetensors"
+        in destinations
+    )
     return len(ids), total_bytes
 
 
@@ -106,6 +109,7 @@ def validate_dockerfile() -> None:
     assert "setuptools==69.5.1" in dockerfile
     assert "STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git" in dockerfile
     assert "STABLE_DIFFUSION_COMMIT_HASH=cf1d67a6fd5ea1aa600c4df58e5b47da45f6bdbf" in dockerfile
+    assert "patch_controlnet_clipvision.py" in dockerfile
     assert ":latest" not in dockerfile
 
 
