@@ -16,7 +16,7 @@ ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.5
 Verified linux/amd64 image digest:
 
 ```text
-pending GitHub Actions build
+sha256:ba807df53c24f8a80f08fa0bc1419f7cc0ac51342abeae5d296797c30e26cdb4
 ```
 
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
