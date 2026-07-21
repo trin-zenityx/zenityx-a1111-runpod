@@ -8,6 +8,6 @@
   "outdir_img2img_grids": "${WORKSPACE}/outputs/grids",
   "outdir_save": "${WORKSPACE}/outputs/save",
   "outdir_init_images": "${WORKSPACE}/outputs/init-images",
-  "control_net_models_path": "${WORKSPACE}/models/ControlNet"
+  "control_net_models_path": "${WORKSPACE}/models/ControlNet",
+  "control_net_modules_path": "${WORKSPACE}/models/ControlNet-Preprocessors"
 }
-

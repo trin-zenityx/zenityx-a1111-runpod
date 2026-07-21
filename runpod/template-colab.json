@@ -1,6 +1,6 @@
 {
-  "name": "ZenityX A1111 Colab Full",
-  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.2",
+  "name": "ZenityX A1111 Full SD15 ControlNet",
+  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.3",
   "category": "NVIDIA",
   "containerDiskInGb": 40,
   "dockerEntrypoint": [],
@@ -19,7 +19,7 @@
   "ports": [
     "7860/http"
   ],
-  "readme": "# ZenityX A1111 Colab Full\n\nAUTOMATIC1111 with the original SD 1.5 ControlNet and IP-Adapter bundle. First startup downloads about 15 GiB. Open Pod logs to copy the generated WebUI login, then connect to HTTP port 7860. A 50-100 GB Network Volume mounted at /workspace is recommended for continued use.",
+  "readme": "# ZenityX A1111 Full SD15 ControlNet\n\nAUTOMATIC1111 v1.10.1 with ControlNet v1.1.455, the complete SD 1.5 ControlNet 1.1 fp16 set, five ControlNet++ models, QR Monster, three IP-Adapter models, and the CLIP-H image encoder. First startup downloads about 21.4 GiB. Open Pod logs to copy the generated WebUI login, then connect to HTTP port 7860. A 50-100 GB Network Volume mounted at /workspace is recommended for continued use.",
   "volumeInGb": 50,
   "volumeMountPath": "/workspace"
 }

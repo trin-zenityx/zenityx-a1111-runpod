@@ -12,6 +12,33 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
+IMAGE_VERSION = "0.1.3"
+CONTROLNET_EXTENSION_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
+REQUIRED_CONTROLNET_WEIGHTS = {
+    "control_v11e_sd15_ip2p_fp16.safetensors",
+    "control_v11e_sd15_shuffle_fp16.safetensors",
+    "control_v11f1e_sd15_tile_fp16.safetensors",
+    "control_v11f1p_sd15_depth_fp16.safetensors",
+    "control_v11p_sd15_canny_fp16.safetensors",
+    "control_v11p_sd15_inpaint_fp16.safetensors",
+    "control_v11p_sd15_lineart_fp16.safetensors",
+    "control_v11p_sd15_mlsd_fp16.safetensors",
+    "control_v11p_sd15_normalbae_fp16.safetensors",
+    "control_v11p_sd15_openpose_fp16.safetensors",
+    "control_v11p_sd15_scribble_fp16.safetensors",
+    "control_v11p_sd15_seg_fp16.safetensors",
+    "control_v11p_sd15_softedge_fp16.safetensors",
+    "control_v11p_sd15s2_lineart_anime_fp16.safetensors",
+    "control_v1p_sd15_qrcode_monster.safetensors",
+    "controlnet++_canny_sd15_fp16.safetensors",
+    "controlnet++_depth_sd15_fp16.safetensors",
+    "controlnet++_hed_softedge_sd15_fp16.safetensors",
+    "controlnet++_lineart_sd15_fp16.safetensors",
+    "controlnet++_seg_sd15_fp16.safetensors",
+    "ip-adapter-plus-face_sd15.pth",
+    "ip-adapter-plus_sd15.pth",
+    "ip-adapter_sd15.pth",
+}
 
 
 def load(relative: str):
@@ -42,6 +69,14 @@ def validate_assets() -> tuple[int, int]:
         if asset.get("size"):
             assert asset["size"] > 0, asset["id"]
             total_bytes += asset["size"]
+    controlnet_weights = {
+        Path(destination).name
+        for destination in destinations
+        if destination.startswith("models/ControlNet/")
+        and Path(destination).suffix in {".safetensors", ".pth"}
+    }
+    assert REQUIRED_CONTROLNET_WEIGHTS <= controlnet_weights
+    assert "models/ControlNet-Preprocessors/clip_vision/clip_h.pth" in destinations
     return len(ids), total_bytes
 
 
@@ -49,6 +84,7 @@ def validate_extensions() -> int:
     manifest = load("manifests/extensions.lock.json")
     assert manifest["schema_version"] == 1
     names: set[str] = set()
+    by_name = {extension["name"]: extension for extension in manifest["extensions"]}
     for extension in manifest["extensions"]:
         assert extension["name"] not in names, extension["name"]
         names.add(extension["name"])
@@ -56,6 +92,7 @@ def validate_extensions() -> int:
         assert COMMIT_RE.fullmatch(extension["commit"]), extension["name"]
         if not extension["default"]:
             assert extension.get("enable_env"), extension["name"]
+    assert by_name["sd-webui-controlnet"]["commit"] == CONTROLNET_EXTENSION_COMMIT
     return len(names)
 
 
@@ -88,16 +125,25 @@ def validate_runpod_templates() -> int:
         assert template["env"]["WEBUI_AUTH"] == "1", relative
         assert template["env"]["ENABLE_API"] == "0", relative
         assert "WEBUI_PASSWORD" not in template["env"], relative
-        assert template["imageName"].endswith(":0.1.2"), relative
+        assert template["imageName"].endswith(f":{IMAGE_VERSION}"), relative
         assert template["isPublic"] is False, relative
         assert template["isServerless"] is False, relative
     return len(expected)
+
+
+def validate_runtime_overrides() -> None:
+    overrides = load("config/runtime-overrides.json")
+    assert overrides["control_net_models_path"] == "${WORKSPACE}/models/ControlNet"
+    assert overrides["control_net_modules_path"] == (
+        "${WORKSPACE}/models/ControlNet-Preprocessors"
+    )
 
 
 def main() -> None:
     asset_count, total_bytes = validate_assets()
     extension_count = validate_extensions()
     validate_dockerfile()
+    validate_runtime_overrides()
     template_count = validate_runpod_templates()
     print(
         f"validated {asset_count} assets ({total_bytes / 1024**3:.1f} GiB declared), "

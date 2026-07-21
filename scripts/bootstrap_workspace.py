@@ -202,6 +202,7 @@ def create_directories(workspace: Path) -> None:
         "models/Lora",
         "models/VAE",
         "models/ControlNet",
+        "models/ControlNet-Preprocessors",
         "models/ESRGAN",
         "outputs/text",
         "outputs/image",

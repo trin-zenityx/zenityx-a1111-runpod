@@ -31,3 +31,8 @@ clear model license in their public metadata when this deployment project was
 prepared. Public or commercial operators should publish the relevant model
 cards, provenance, licenses, and attribution before offering those assets to
 other users.
+
+The pinned `ckpt/ControlNet-v1-1` repository declares the OpenRAIL license. The
+five pinned `huchenlei/ControlNet_plus_plus_collection_fp16` weights and the
+`h94/IP-Adapter` repository declare Apache-2.0. These upstream declarations do
+not change the separate and currently unclear provenance or license of Magmix.

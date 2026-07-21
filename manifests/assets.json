@@ -200,6 +200,24 @@
       "size": 1949
     },
     {
+      "id": "controlnet-seg-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_seg_fp16.safetensors",
+      "destination": "models/ControlNet/control_v11p_sd15_seg_fp16.safetensors",
+      "sha256": "acd4dd3df2da2f1f2b9dd00f4504cc0d98b20afb608e25f1789a95c0ccdba14a",
+      "size": 722601100
+    },
+    {
+      "id": "controlnet-seg-config",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/ckpt/ControlNet-v1-1/resolve/464087c496976ebc982c7862f0589e33f5035cd5/control_v11p_sd15_seg_fp16.yaml",
+      "destination": "models/ControlNet/control_v11p_sd15_seg_fp16.yaml",
+      "sha256": "39e1338c4143618adb17604f96c3a3f740c1ab5d1557d71b044f0307a0a6adb4",
+      "size": 1949
+    },
+    {
       "id": "controlnet-softedge-model",
       "kind": "controlnet",
       "profiles": ["colab"],
@@ -268,6 +286,51 @@
       "size": 1949
     },
     {
+      "id": "controlnetpp-canny-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/8fff22e705dc2645eb10fb2179f55be22f7a6970/controlnet++_canny_sd15_fp16.safetensors",
+      "destination": "models/ControlNet/controlnet++_canny_sd15_fp16.safetensors",
+      "sha256": "364c42de82d4a74826d408ca8dfd1d87edb4044fd2ed976bea659edfaabebd68",
+      "size": 722598616
+    },
+    {
+      "id": "controlnetpp-depth-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/8fff22e705dc2645eb10fb2179f55be22f7a6970/controlnet++_depth_sd15_fp16.safetensors",
+      "destination": "models/ControlNet/controlnet++_depth_sd15_fp16.safetensors",
+      "sha256": "ba9b754a89b3b7ecee69c977419b25952d634f764eff350699a760025641d98e",
+      "size": 722598616
+    },
+    {
+      "id": "controlnetpp-softedge-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/8fff22e705dc2645eb10fb2179f55be22f7a6970/controlnet++_hed_softedge_sd15_fp16.safetensors",
+      "destination": "models/ControlNet/controlnet++_hed_softedge_sd15_fp16.safetensors",
+      "sha256": "28c5eaf81de02baca120c69c68a9e3b0e7e7246ee27d93b8a7a66a5d3acf7dc0",
+      "size": 722598616
+    },
+    {
+      "id": "controlnetpp-lineart-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/8fff22e705dc2645eb10fb2179f55be22f7a6970/controlnet++_lineart_sd15_fp16.safetensors",
+      "destination": "models/ControlNet/controlnet++_lineart_sd15_fp16.safetensors",
+      "sha256": "42c9c7fc2712ef74428be506d17006a3d64221dca5d0ae9db6e51cc66e415c47",
+      "size": 722598616
+    },
+    {
+      "id": "controlnetpp-seg-model",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/8fff22e705dc2645eb10fb2179f55be22f7a6970/controlnet++_seg_sd15_fp16.safetensors",
+      "destination": "models/ControlNet/controlnet++_seg_sd15_fp16.safetensors",
+      "sha256": "1f31ed438e2688212f2f45c50badbfd4ab7d4b7a804c89f8db42066db9bab4ba",
+      "size": 722598616
+    },
+    {
       "id": "controlnet-qrcode-model",
       "kind": "controlnet",
       "profiles": ["colab"],
@@ -310,6 +373,15 @@
       "destination": "models/ControlNet/ip-adapter-plus_sd15.pth",
       "sha256": "1cb77fc0613369b66be1531cc452b823a4af7d87ee56956000a69fc39e3817ba",
       "size": 158033179
+    },
+    {
+      "id": "ip-adapter-clip-h-encoder",
+      "kind": "controlnet",
+      "profiles": ["colab"],
+      "url": "https://huggingface.co/h94/IP-Adapter/resolve/018e402774aeeddd60609b4ecdb7e298259dc729/models/image_encoder/pytorch_model.bin",
+      "destination": "models/ControlNet-Preprocessors/clip_vision/clip_h.pth",
+      "sha256": "3d3ec1e66737f77a4f3bc2df3c52eacefc69ce7825e2784183b1d4e9877d9193",
+      "size": 2528481905
     },
     {
       "id": "preset-config-sd15-v2",
@@ -430,4 +502,3 @@
     }
   ]
 }
-
