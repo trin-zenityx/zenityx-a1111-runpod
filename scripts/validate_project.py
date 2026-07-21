@@ -12,9 +12,9 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
-IMAGE_VERSION = "0.1.5"
+IMAGE_VERSION = "0.1.6"
 CONTROLNET_EXTENSION_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
-MEDIAPIPE_VERSION = "0.10.21"
+MEDIAPIPE_VERSION = "0.10.11"
 REQUIRED_CONTROLNET_WEIGHTS = {
     "control_v11e_sd15_ip2p_fp16.safetensors",
     "control_v11e_sd15_shuffle_fp16.safetensors",
