@@ -13,8 +13,11 @@ Release image สร้างโดย GitHub Actions จาก source repositor
 ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.3
 ```
 
-ใช้ tag แบบ immutable เท่านั้น; digest ของ `0.1.3` อยู่ใน GitHub package และ
-release metadata หลัง workflow publish สำเร็จ.
+Verified linux/amd64 image digest:
+
+```text
+sha256:400d22ee9b0e677de8dd0747c2001dedc6b12ee4f2e838c713945e4a200d9e4d
+```
 
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
 `WEBUI_PASSWORD` ระบบจะสร้างรหัสเฉพาะ workspace และแสดง login ใน Pod logs.
