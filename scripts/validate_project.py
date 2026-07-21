@@ -12,9 +12,11 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
-IMAGE_VERSION = "0.1.6"
+IMAGE_VERSION = "0.1.7"
 CONTROLNET_EXTENSION_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
-MEDIAPIPE_VERSION = "0.10.11"
+MEDIAPIPE_VERSION = "0.10.21"
+NUMPY_VERSION = "1.26.2"
+PROTOBUF_VERSION = "4.25.3"
 REQUIRED_CONTROLNET_WEIGHTS = {
     "control_v11e_sd15_ip2p_fp16.safetensors",
     "control_v11e_sd15_shuffle_fp16.safetensors",
@@ -112,7 +114,12 @@ def validate_dockerfile() -> None:
     assert "STABLE_DIFFUSION_COMMIT_HASH=cf1d67a6fd5ea1aa600c4df58e5b47da45f6bdbf" in dockerfile
     assert "patch_controlnet_clipvision.py" in dockerfile
     assert f"ARG MEDIAPIPE_VERSION={MEDIAPIPE_VERSION}" in dockerfile
+    assert f"ARG NUMPY_VERSION={NUMPY_VERSION}" in dockerfile
+    assert f"ARG PROTOBUF_VERSION={PROTOBUF_VERSION}" in dockerfile
     assert '"mediapipe==${MEDIAPIPE_VERSION}"' in dockerfile
+    assert '"numpy==${NUMPY_VERSION}"' in dockerfile
+    assert '"protobuf==${PROTOBUF_VERSION}"' in dockerfile
+    assert '"s/protobuf==3.20.0/protobuf==${PROTOBUF_VERSION}/"' in dockerfile
     assert ":latest" not in dockerfile
 
 

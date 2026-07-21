@@ -1,7 +1,9 @@
 FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 
 ARG A1111_COMMIT=82a973c04367123ae98bd9abdf80d9eda9b910e2
-ARG MEDIAPIPE_VERSION=0.10.11
+ARG MEDIAPIPE_VERSION=0.10.21
+ARG NUMPY_VERSION=1.26.2
+ARG PROTOBUF_VERSION=4.25.3
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
@@ -63,9 +65,9 @@ COPY scripts/install_extensions.py /opt/zenityx/scripts/install_extensions.py
 COPY scripts/patch_controlnet_clipvision.py /opt/zenityx/scripts/patch_controlnet_clipvision.py
 
 # ControlNet v1.1.455 still imports MediaPipe Legacy Solutions via
-# mp.solutions. Newer MediaPipe releases either remove that API or require
-# protobuf 4, while A1111 v1.10.1 pins protobuf 3.20. Reinstall the newest
-# compatible wheel after extension requirements have been resolved.
+# mp.solutions, while ADetailer requires MediaPipe >=0.10.13. MediaPipe 0.10.21
+# satisfies both but requires protobuf 4; keep A1111's requirements pin and the
+# final environment aligned after all extension installers have run.
 RUN python /opt/zenityx/scripts/install_extensions.py \
         --manifest /opt/zenityx/manifests/extensions.lock.json \
         --destination /opt/stable-diffusion-webui/extensions \
@@ -74,7 +76,12 @@ RUN python /opt/zenityx/scripts/install_extensions.py \
         --target /opt/stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/clipvision/__init__.py \
     && cd /opt/stable-diffusion-webui \
     && python launch.py --skip-torch-cuda-test --xformers --exit \
+    && sed -i \
+        "s/protobuf==3.20.0/protobuf==${PROTOBUF_VERSION}/" \
+        /opt/stable-diffusion-webui/requirements_versions.txt \
     && python -m pip install --no-deps --force-reinstall \
+        "numpy==${NUMPY_VERSION}" \
+        "protobuf==${PROTOBUF_VERSION}" \
         "mediapipe==${MEDIAPIPE_VERSION}"
 
 COPY manifests/assets.json /opt/zenityx/manifests/assets.json
