@@ -14,12 +14,12 @@
     "FORCE_PRESET": "0",
     "UI_LANGUAGE": "th_TH"
   },
-  "isPublic": false,
+  "isPublic": true,
   "isServerless": false,
   "ports": [
     "7860/http"
   ],
-  "readme": "# ZenityX A1111 Full SD15 ControlNet\n\nAUTOMATIC1111 v1.10.1 with ControlNet v1.1.455, the complete SD 1.5 ControlNet 1.1 fp16 set, five ControlNet++ models, QR Monster, three IP-Adapter models, and the CLIP-H image encoder. First startup downloads about 21.4 GiB. Open Pod logs to copy the generated WebUI login, then connect to HTTP port 7860. A 50-100 GB Network Volume mounted at /workspace is recommended for continued use.",
+  "readme": "# ZenityX A1111 Full SD15 ControlNet\n\nชุดพร้อมใช้ AUTOMATIC1111 v1.10.1 + ControlNet v1.1.455 สำหรับ SD1.5 มี ControlNet 1.1 fp16 ครบ 14 ตัว, ControlNet++ 5 ตัว, QR Monster, IP-Adapter 3 ตัว, CLIP-H, Magmix v8, ADetailer และ preset ภาษาไทย.\n\n## เริ่มใช้งาน\n1. เลือก NVIDIA GPU; แนะนำ VRAM 24 GB สำหรับ ControlNet และ upscale\n2. กด Deploy On-Demand\n3. เปิด Container Logs และรอข้อความ `Starting A1111 on port 7860`\n4. คัดลอก login ที่ระบบสร้างจากบรรทัด `WebUI login`\n5. เปิด HTTP Service port 7860 แล้วเข้าสู่ระบบ\n\nครั้งแรกดาวน์โหลด asset ประมาณ 21.4 GiB ไปที่ `/workspace` และอาจใช้เวลาหลายนาที. ห้ามปิด WebUI authentication. หากต้องใช้ซ้ำ แนะนำ Network Volume 50-100 GB; ถ้าใช้ Volume Disk ปกติ ข้อมูลจะถูกลบเมื่อ Terminate.\n\nคู่มือภาษาไทย: https://github.com/trin-zenityx/zenityx-a1111-runpod/blob/main/docs/RUNPOD-TH.md",
   "volumeInGb": 50,
   "volumeMountPath": "/workspace"
 }

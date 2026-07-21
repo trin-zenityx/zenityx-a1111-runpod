@@ -22,6 +22,16 @@ sha256:9389a4d09a5c08c3b78cf1f8272c3623aeb4b10a3ec2706063f78ab9ce35a66a
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
 `WEBUI_PASSWORD` ระบบจะสร้างรหัสเฉพาะ workspace และแสดง login ใน Pod logs.
 
+## เปิดบน RunPod แบบคลิกเดียว
+
+- **Full SD1.5 + ControlNet (แนะนำ):** [Deploy ZenityX A1111 Full](https://console.runpod.io/deploy?template=f6i7jlc22q)
+- **Lite สำหรับทดลองเร็ว:** [Deploy ZenityX A1111 Lite](https://console.runpod.io/deploy?template=81l0kb0hvr)
+
+ผู้ใช้แต่ละคนจะได้ Pod, `/workspace`, การตั้งค่า, รหัสผ่าน และไฟล์ผลลัพธ์ของตัวเอง
+ไม่ใช่การแชร์ A1111 instance เดียวกัน. อ่านขั้นตอนตั้งแต่สมัคร RunPod, เลือก GPU,
+เปิด WebUI, เก็บงาน และหยุดค่าใช้จ่ายได้ที่
+**[คู่มือ RunPod + A1111 ภาษาไทย](docs/RUNPOD-TH.md)**.
+
 ## สิ่งที่มีให้
 
 - AUTOMATIC1111 `v1.10.1` ที่ตรึง commit ไว้
@@ -111,8 +121,9 @@ docker buildx build \
 - `runpod/template-lite.json` — ทดลองเร็ว ใช้ Volume Disk 30 GB
 - `runpod/template-colab.json` — ชุด SD1.5 ControlNet เต็ม ใช้ Volume Disk 50 GB
 
-ทั้งสองไฟล์ตั้ง `isPublic=false` โดยตั้งใจ ต้องผ่าน GPU smoke test ก่อนจึงค่อย
-เปลี่ยน template ที่ทดสอบแล้วเป็น public.
+ทั้งสอง template ผ่าน GPU smoke test แล้วและตั้ง `isPublic=true` เพื่อให้ผู้ใช้
+RunPod คนอื่นเปิดผ่านลิงก์ Deploy หรือค้นหาชื่อ template ใน RunPod Explore ได้.
+Template IDs คือ `f6i7jlc22q` (Full) และ `81l0kb0hvr` (Lite).
 Container image ใน template ตรึงทั้ง tag และ linux/amd64 digest เพื่อป้องกัน
 registry หรือ host cache ชี้ไป content คนละชุด.
 

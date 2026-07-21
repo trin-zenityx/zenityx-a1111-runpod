@@ -145,8 +145,9 @@ def validate_runpod_templates() -> int:
         assert template["env"]["ENABLE_API"] == "0", relative
         assert "WEBUI_PASSWORD" not in template["env"], relative
         assert template["imageName"] == expected_image, relative
-        assert template["isPublic"] is False, relative
+        assert template["isPublic"] is True, relative
         assert template["isServerless"] is False, relative
+        assert "docs/RUNPOD-TH.md" in template["readme"], relative
     return len(expected)
 
 
@@ -166,7 +167,7 @@ def main() -> None:
     template_count = validate_runpod_templates()
     print(
         f"validated {asset_count} assets ({total_bytes / 1024**3:.1f} GiB declared), "
-        f"{extension_count} pinned extensions, {template_count} private RunPod templates, "
+        f"{extension_count} pinned extensions, {template_count} public RunPod templates, "
         "and Dockerfile invariants"
     )
 
