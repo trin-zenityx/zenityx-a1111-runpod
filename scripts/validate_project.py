@@ -12,8 +12,9 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
-IMAGE_VERSION = "0.1.4"
+IMAGE_VERSION = "0.1.5"
 CONTROLNET_EXTENSION_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
+MEDIAPIPE_VERSION = "0.10.21"
 REQUIRED_CONTROLNET_WEIGHTS = {
     "control_v11e_sd15_ip2p_fp16.safetensors",
     "control_v11e_sd15_shuffle_fp16.safetensors",
@@ -110,6 +111,8 @@ def validate_dockerfile() -> None:
     assert "STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git" in dockerfile
     assert "STABLE_DIFFUSION_COMMIT_HASH=cf1d67a6fd5ea1aa600c4df58e5b47da45f6bdbf" in dockerfile
     assert "patch_controlnet_clipvision.py" in dockerfile
+    assert f"ARG MEDIAPIPE_VERSION={MEDIAPIPE_VERSION}" in dockerfile
+    assert '"mediapipe==${MEDIAPIPE_VERSION}"' in dockerfile
     assert ":latest" not in dockerfile
 
 

@@ -1,6 +1,7 @@
 FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
 
 ARG A1111_COMMIT=82a973c04367123ae98bd9abdf80d9eda9b910e2
+ARG MEDIAPIPE_VERSION=0.10.21
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
@@ -61,6 +62,10 @@ COPY manifests/extensions.lock.json /opt/zenityx/manifests/extensions.lock.json
 COPY scripts/install_extensions.py /opt/zenityx/scripts/install_extensions.py
 COPY scripts/patch_controlnet_clipvision.py /opt/zenityx/scripts/patch_controlnet_clipvision.py
 
+# ControlNet v1.1.455 still imports MediaPipe Legacy Solutions via
+# mp.solutions. MediaPipe 0.10.31+ removed that API and prevents the
+# ControlNet accordion from registering in A1111, so reinstall the compatible
+# wheel after extension requirements have been resolved.
 RUN python /opt/zenityx/scripts/install_extensions.py \
         --manifest /opt/zenityx/manifests/extensions.lock.json \
         --destination /opt/stable-diffusion-webui/extensions \
@@ -68,7 +73,9 @@ RUN python /opt/zenityx/scripts/install_extensions.py \
     && python /opt/zenityx/scripts/patch_controlnet_clipvision.py \
         --target /opt/stable-diffusion-webui/extensions/sd-webui-controlnet/annotator/clipvision/__init__.py \
     && cd /opt/stable-diffusion-webui \
-    && python launch.py --skip-torch-cuda-test --xformers --exit
+    && python launch.py --skip-torch-cuda-test --xformers --exit \
+    && python -m pip install --no-deps --force-reinstall \
+        "mediapipe==${MEDIAPIPE_VERSION}"
 
 COPY manifests/assets.json /opt/zenityx/manifests/assets.json
 COPY config/runtime-overrides.json /opt/zenityx/config/runtime-overrides.json
