@@ -16,7 +16,7 @@ ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.7
 Verified linux/amd64 image digest:
 
 ```text
-pending GitHub Actions build
+sha256:9389a4d09a5c08c3b78cf1f8272c3623aeb4b10a3ec2706063f78ab9ce35a66a
 ```
 
 Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
@@ -113,6 +113,8 @@ docker buildx build \
 
 ทั้งสองไฟล์ตั้ง `isPublic=false` โดยตั้งใจ ต้องผ่าน GPU smoke test ก่อนจึงค่อย
 เปลี่ยน template ที่ทดสอบแล้วเป็น public.
+Container image ใน template ตรึงทั้ง tag และ linux/amd64 digest เพื่อป้องกัน
+registry หรือ host cache ชี้ไป content คนละชุด.
 
 RunPod URL จะมีรูปแบบประมาณ:
 

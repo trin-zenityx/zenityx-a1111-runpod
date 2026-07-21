@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 IMAGE_VERSION = "0.1.7"
+IMAGE_AMD64_DIGEST = "9389a4d09a5c08c3b78cf1f8272c3623aeb4b10a3ec2706063f78ab9ce35a66a"
 CONTROLNET_EXTENSION_COMMIT = "56cec5b2958edf3b1807b7e7b2b1b5186dbd2f81"
 MEDIAPIPE_VERSION = "0.10.21"
 NUMPY_VERSION = "1.26.2"
@@ -124,6 +125,10 @@ def validate_dockerfile() -> None:
 
 
 def validate_runpod_templates() -> int:
+    expected_image = (
+        "ghcr.io/trin-zenityx/zenityx-a1111-runpod:"
+        f"{IMAGE_VERSION}@sha256:{IMAGE_AMD64_DIGEST}"
+    )
     expected = {
         "runpod/template-lite.json": ("lite", 30),
         "runpod/template-colab.json": ("colab", 50),
@@ -139,7 +144,7 @@ def validate_runpod_templates() -> int:
         assert template["env"]["WEBUI_AUTH"] == "1", relative
         assert template["env"]["ENABLE_API"] == "0", relative
         assert "WEBUI_PASSWORD" not in template["env"], relative
-        assert template["imageName"].endswith(f":{IMAGE_VERSION}"), relative
+        assert template["imageName"] == expected_image, relative
         assert template["isPublic"] is False, relative
         assert template["isServerless"] is False, relative
     return len(expected)

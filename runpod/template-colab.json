@@ -1,6 +1,6 @@
 {
   "name": "ZenityX A1111 Full SD15 ControlNet",
-  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.7",
+  "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.7@sha256:9389a4d09a5c08c3b78cf1f8272c3623aeb4b10a3ec2706063f78ab9ce35a66a",
   "category": "NVIDIA",
   "containerDiskInGb": 40,
   "dockerEntrypoint": [],
