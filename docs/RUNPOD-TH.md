@@ -1,9 +1,21 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/zenityx-logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="assets/zenityx-logo-light.png">
+    <img alt="ZenityX" src="assets/zenityx-logo-light.png" width="360">
+  </picture>
+</p>
+
 # คู่มือเปิด ZenityX AUTOMATIC1111 บน RunPod
 
 คู่มือนี้สำหรับผู้ที่ต้องการใช้ Stable Diffusion แบบหน้าตา AUTOMATIC1111 (A1111)
 โดยไม่ต้องติดตั้ง CUDA, Python หรือโมเดลเองบนเครื่อง. ผู้ใช้แต่ละคนจะสร้าง Pod
 แยกของตัวเองบนบัญชี RunPod ของตนเอง จึงไม่แชร์ prompt, การตั้งค่า, โมเดล
 หรือผลลัพธ์กับผู้ใช้อื่น.
+
+> คู่มือนี้จัดทำโดย **ZenityX** จาก workflow เดิมบน Google Colab สู่ GPU Cloud
+> สำหรับผู้เรียน ครีเอเตอร์ และผู้ที่ต้องการทดลอง Generative AI ด้วย workspace
+> ส่วนตัวของตนเอง.
 
 Public templates หลักใช้โหมด **No Login** สำหรับงานอายุสั้น. URL ของ RunPod
 proxy เข้าถึงได้จากอินเทอร์เน็ตระหว่างที่ Pod ทำงาน จึงไม่ควรแชร์ลิงก์และควร
@@ -313,3 +325,18 @@ Source และรายการ third-party notices:
 
 หากพบปัญหา ให้เปิด issue โดยแนบชื่อ GPU, template Full/Lite, image tag,
 ช่วง log ที่ไม่มีรหัสผ่าน/API key และขั้นตอนที่ทำให้เกิดปัญหา.
+
+## 13. เรียนรู้และต่อยอดกับ ZenityX
+
+ชุด RunPod นี้เป็นส่วนหนึ่งของแนวทางที่ ZenityX ใช้ช่วยให้ผู้เรียนเริ่มจาก
+workflow ที่คุ้นเคย แล้วต่อยอดไปสู่การสร้างผลงาน Generative AI บน Cloud:
+
+- [ZenityX Studio](https://studio.zenityx.com) — แพลตฟอร์มสร้างภาพ วิดีโอ
+  อวตาร และเสียงด้วย AI ในที่เดียว
+- [YouTube @ZenityXAI](https://www.youtube.com/@ZenityXAI) — บทเรียน แนวทาง
+  การใช้งาน และ workflow จาก ZenityX
+- [GitHub ของโปรเจกต์](https://github.com/trin-zenityx/zenityx-a1111-runpod) —
+  source code, release และช่องทางแจ้งปัญหา
+
+โลโก้และชื่อ ZenityX ใช้เพื่อระบุผู้จัดทำและผู้ดูแลโปรเจกต์ ส่วน AUTOMATIC1111,
+RunPod และโมเดลต่าง ๆ เป็นโครงการหรือบริการของเจ้าของแต่ละราย.

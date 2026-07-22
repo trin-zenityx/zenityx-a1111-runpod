@@ -1,6 +1,27 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/zenityx-logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/zenityx-logo-light.png">
+    <img alt="ZenityX" src="docs/assets/zenityx-logo-light.png" width="420">
+  </picture>
+</p>
+
 # ZenityX A1111 for RunPod
 
-Docker image สำหรับเปิด AUTOMATIC1111 Stable Diffusion WebUI บน RunPod โดยย้ายแนวคิดจาก `ZenityX_SD_Webui_Colab V3` มาเป็น container ที่สร้างใหม่ได้ และเก็บโมเดล การตั้งค่า และผลลัพธ์ไว้ถาวรใน `/workspace`.
+<p align="center">
+  เปิด Stable Diffusion แบบ AUTOMATIC1111 บน Cloud พร้อม Magmix, ControlNet และ preset ของ ZenityX
+</p>
+
+<p align="center">
+  <a href="https://studio.zenityx.com">ZenityX Studio</a> ·
+  <a href="docs/RUNPOD-TH.md">คู่มือภาษาไทย</a> ·
+  <a href="https://www.youtube.com/@ZenityXAI">YouTube @ZenityXAI</a>
+</p>
+
+โปรเจกต์โอเพนซอร์สจาก **ZenityX** สำหรับผู้เรียนและครีเอเตอร์ที่ต้องการใช้
+AUTOMATIC1111 Stable Diffusion WebUI ในสภาพแวดล้อมส่วนตัวบน RunPod โดยย้าย
+แนวคิดจาก `ZenityX_SD_Webui_Colab V3` มาเป็น container ที่สร้างซ้ำได้ และเก็บ
+โมเดล การตั้งค่า และผลลัพธ์ไว้ใน `/workspace`.
 
 ## Public image
 
@@ -37,6 +58,21 @@ Cold-start benchmark วันที่ 22 กรกฎาคม 2026 บน Com
 `9:57` นาทีถึง A1111 เปิด port และ `10:11` นาทีถึงตรวจหน้า No Login ผ่าน HTTPS
 proxy สำหรับ Full profile ใหม่ 21.4 GiB. ผลนี้เป็นการวัดหนึ่ง host ไม่ใช่ SLA;
 รายละเอียด milestone, ต้นทุน และวิธีลดเวลารออยู่ในคู่มือภาษาไทย.
+
+## จาก ZenityX Colab สู่ Cloud
+
+ZenityX พัฒนาชุดนี้เพื่อให้ workflow ที่ผู้เรียนคุ้นเคยจาก Google Colab เปิดใช้
+บน GPU Cloud ได้ง่ายขึ้น แต่ละคนมี Pod และ workspace ของตนเอง จึงทดลอง prompt,
+ControlNet, LoRA และการตั้งค่า A1111 ได้โดยไม่ปะปนกับผู้ใช้อื่น.
+
+- สร้างภาพ วิดีโอ อวตาร และเสียงด้วยเครื่องมือ AI เพิ่มเติมที่
+  [ZenityX Studio](https://studio.zenityx.com)
+- เรียนรู้ workflow และติดตามบทเรียนจาก
+  [ZenityX YouTube](https://www.youtube.com/@ZenityXAI)
+- ปัญหาของ Docker image หรือ RunPod template ให้แจ้งผ่าน
+  [GitHub Issues](https://github.com/trin-zenityx/zenityx-a1111-runpod/issues)
+
+โปรเจกต์นี้ดูแลโดยชุมชน ZenityX และไม่ใช่ผลิตภัณฑ์ที่ RunPod รับรองอย่างเป็นทางการ.
 
 ## สิ่งที่มีให้
 
