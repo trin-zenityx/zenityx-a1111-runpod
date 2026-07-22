@@ -19,18 +19,24 @@ Verified linux/amd64 image digest:
 sha256:9389a4d09a5c08c3b78cf1f8272c3623aeb4b10a3ec2706063f78ab9ce35a66a
 ```
 
-Public RunPod template จะไม่ฝังรหัสผ่านร่วมกัน หากไม่ตั้ง
-`WEBUI_PASSWORD` ระบบจะสร้างรหัสเฉพาะ workspace และแสดง login ใน Pod logs.
+Public RunPod templates หลักใช้โหมด `No Login` สำหรับ Pod อายุสั้น โดยยังปิด
+A1111 API และไม่เปิด `--enable-insecure-extension-access`. URL ของ RunPod proxy
+เป็น public ระหว่างที่ Pod ทำงาน จึงไม่ควรแชร์ลิงก์และควร Stop/Terminate เมื่อใช้เสร็จ.
 
 ## เปิดบน RunPod แบบคลิกเดียว
 
-- **Full SD1.5 + ControlNet (แนะนำ):** [Deploy ZenityX A1111 Full](https://console.runpod.io/deploy?template=f6i7jlc22q)
-- **Lite สำหรับทดลองเร็ว:** [Deploy ZenityX A1111 Lite](https://console.runpod.io/deploy?template=81l0kb0hvr)
+- **Full SD1.5 + ControlNet (แนะนำ):** [Deploy ZenityX A1111 Full](https://console.runpod.io/deploy?template=kdtnt1n8is)
+- **Lite สำหรับทดลองเร็ว:** [Deploy ZenityX A1111 Lite](https://console.runpod.io/deploy?template=2zoj4oile9)
 
-ผู้ใช้แต่ละคนจะได้ Pod, `/workspace`, การตั้งค่า, รหัสผ่าน และไฟล์ผลลัพธ์ของตัวเอง
+ผู้ใช้แต่ละคนจะได้ Pod, `/workspace`, การตั้งค่า และไฟล์ผลลัพธ์ของตัวเอง
 ไม่ใช่การแชร์ A1111 instance เดียวกัน. อ่านขั้นตอนตั้งแต่สมัคร RunPod, เลือก GPU,
 เปิด WebUI, เก็บงาน และหยุดค่าใช้จ่ายได้ที่
 **[คู่มือ RunPod + A1111 ภาษาไทย](docs/RUNPOD-TH.md)**.
+
+Cold-start benchmark วันที่ 22 กรกฎาคม 2026 บน Community RTX 3090 ใช้เวลา
+`9:57` นาทีถึง A1111 เปิด port และ `10:11` นาทีถึงตรวจหน้า No Login ผ่าน HTTPS
+proxy สำหรับ Full profile ใหม่ 21.4 GiB. ผลนี้เป็นการวัดหนึ่ง host ไม่ใช่ SLA;
+รายละเอียด milestone, ต้นทุน และวิธีลดเวลารออยู่ในคู่มือภาษาไทย.
 
 ## สิ่งที่มีให้
 
@@ -43,7 +49,7 @@ Public RunPod template จะไม่ฝังรหัสผ่านร่ว
 - CLIP-H ของ IP-Adapter ใช้ `safetensors` พร้อม SHA-256 และ compatibility patch สำหรับ PyTorch 2.6
 - Config, models, LoRA, embeddings, outputs และ cache อยู่บน `/workspace`
 - ตรวจขนาดและ SHA-256 ของไฟล์โมเดลที่สำคัญ
-- สร้างรหัสผ่าน WebUI อัตโนมัติถ้าไม่ได้ระบุเอง
+- รองรับทั้ง `No Login` และ authentication ผ่าน environment variables
 - เปิด A1111 ที่ HTTP port `7860` สำหรับ RunPod proxy
 
 ไม่ติดตั้ง `camenduru/tunnels` เพราะ RunPod มี HTTPS proxy อยู่แล้ว และไม่เปิด `--enable-insecure-extension-access`.
@@ -123,7 +129,7 @@ docker buildx build \
 
 ทั้งสอง template ผ่าน GPU smoke test แล้วและตั้ง `isPublic=true` เพื่อให้ผู้ใช้
 RunPod คนอื่นเปิดผ่านลิงก์ Deploy หรือค้นหาชื่อ template ใน RunPod Explore ได้.
-Template IDs คือ `f6i7jlc22q` (Full) และ `81l0kb0hvr` (Lite).
+Template IDs คือ `kdtnt1n8is` (Full) และ `2zoj4oile9` (Lite).
 Container image ใน template ตรึงทั้ง tag และ linux/amd64 digest เพื่อป้องกัน
 registry หรือ host cache ชี้ไป content คนละชุด.
 
@@ -138,14 +144,13 @@ https://POD_ID-7860.proxy.runpod.net
 ```env
 ZENITYX_PROFILE=lite
 ZENITYX_CONFIG_PRESET=sd15-v2
-WEBUI_USERNAME=zenityx
+WEBUI_AUTH=0
+ENABLE_API=0
 ```
 
-อย่าใส่ `WEBUI_PASSWORD` ลง public template ระบบจะสร้างรหัสแบบสุ่มให้แต่ละ
-workspace. เริ่มด้วย `lite` เพื่อพิสูจน์ว่า image เปิดได้ แล้วเปลี่ยนเป็น
-`colab` และ restart container เพื่อเติม ControlNet ลง volume เดิม.
-
-ถ้าไม่กำหนด `WEBUI_PASSWORD` ระบบจะสร้างรหัสแบบสุ่มครั้งแรกและเก็บใน `/workspace/config/gradio-auth.txt`; ดูค่า login ได้จาก Container Logs.
+เริ่มด้วย `lite` เพื่อพิสูจน์ว่า image เปิดได้ แล้วเปลี่ยนเป็น `colab` และ restart
+container เพื่อเติม ControlNet ลง volume เดิม. หากต้องการเปิด authentication ให้ตั้ง
+`WEBUI_AUTH=1`, `WEBUI_USERNAME` และ `WEBUI_PASSWORD` ผ่าน RunPod Secret.
 
 ## Presets
 

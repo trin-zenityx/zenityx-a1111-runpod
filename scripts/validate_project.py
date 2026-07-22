@@ -141,8 +141,9 @@ def validate_runpod_templates() -> int:
         assert template["volumeMountPath"] == "/workspace", relative
         assert template["ports"] == ["7860/http"], relative
         assert template["env"]["ZENITYX_PROFILE"] == profile, relative
-        assert template["env"]["WEBUI_AUTH"] == "1", relative
+        assert template["env"]["WEBUI_AUTH"] == "0", relative
         assert template["env"]["ENABLE_API"] == "0", relative
+        assert "WEBUI_USERNAME" not in template["env"], relative
         assert "WEBUI_PASSWORD" not in template["env"], relative
         assert template["imageName"] == expected_image, relative
         assert template["isPublic"] is True, relative

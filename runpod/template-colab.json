@@ -1,5 +1,5 @@
 {
-  "name": "ZenityX A1111 Full SD15 ControlNet",
+  "name": "ZenityX A1111 Full SD15 ControlNet - No Login",
   "imageName": "ghcr.io/trin-zenityx/zenityx-a1111-runpod:0.1.7@sha256:9389a4d09a5c08c3b78cf1f8272c3623aeb4b10a3ec2706063f78ab9ce35a66a",
   "category": "NVIDIA",
   "containerDiskInGb": 40,
@@ -8,8 +8,7 @@
   "env": {
     "ZENITYX_PROFILE": "colab",
     "ZENITYX_CONFIG_PRESET": "sd15-v2-thai",
-    "WEBUI_USERNAME": "zenityx",
-    "WEBUI_AUTH": "1",
+    "WEBUI_AUTH": "0",
     "ENABLE_API": "0",
     "FORCE_PRESET": "0",
     "UI_LANGUAGE": "th_TH"
@@ -19,7 +18,7 @@
   "ports": [
     "7860/http"
   ],
-  "readme": "# ZenityX A1111 Full SD15 ControlNet\n\nชุดพร้อมใช้ AUTOMATIC1111 v1.10.1 + ControlNet v1.1.455 สำหรับ SD1.5 มี ControlNet 1.1 fp16 ครบ 14 ตัว, ControlNet++ 5 ตัว, QR Monster, IP-Adapter 3 ตัว, CLIP-H, Magmix v8, ADetailer และ preset ภาษาไทย.\n\n## เริ่มใช้งาน\n1. เลือก NVIDIA GPU; แนะนำ VRAM 24 GB สำหรับ ControlNet และ upscale\n2. กด Deploy On-Demand\n3. เปิด Container Logs และรอข้อความ `Starting A1111 on port 7860`\n4. คัดลอก login ที่ระบบสร้างจากบรรทัด `WebUI login`\n5. เปิด HTTP Service port 7860 แล้วเข้าสู่ระบบ\n\nครั้งแรกดาวน์โหลด asset ประมาณ 21.4 GiB ไปที่ `/workspace` และอาจใช้เวลาหลายนาที. ห้ามปิด WebUI authentication. หากต้องใช้ซ้ำ แนะนำ Network Volume 50-100 GB; ถ้าใช้ Volume Disk ปกติ ข้อมูลจะถูกลบเมื่อ Terminate.\n\nคู่มือภาษาไทย: https://github.com/trin-zenityx/zenityx-a1111-runpod/blob/main/docs/RUNPOD-TH.md",
+  "readme": "# ZenityX A1111 Full SD15 ControlNet - No Login\n\nชุดพร้อมใช้ AUTOMATIC1111 v1.10.1 + ControlNet v1.1.455 สำหรับ SD1.5 มี ControlNet 1.1 fp16 ครบ 14 ตัว, ControlNet++ 5 ตัว, QR Monster, IP-Adapter 3 ตัว, CLIP-H, Magmix v8, ADetailer และ preset ภาษาไทย.\n\n## เริ่มใช้งาน\n1. เลือก NVIDIA GPU; แนะนำ VRAM 24 GB สำหรับ ControlNet และ upscale\n2. กด Deploy On-Demand\n3. เปิด Container Logs และรอข้อความ `Starting A1111 on port 7860`\n4. เปิด HTTP Service port 7860 ได้ทันทีโดยไม่ต้อง login\n\nครั้งแรกดาวน์โหลด asset ประมาณ 21.4 GiB ไปที่ `/workspace` และอาจใช้เวลาหลายนาที. URL เป็น public ระหว่างที่ Pod ทำงาน; อย่าแชร์ลิงก์และให้ Stop/Terminate หลังใช้เสร็จ. A1111 API และ insecure extension access ยังคงปิด. หากต้องใช้ซ้ำ แนะนำ Network Volume 50-100 GB; ถ้าใช้ Volume Disk ปกติ ข้อมูลจะถูกลบเมื่อ Terminate.\n\nคู่มือภาษาไทย: https://github.com/trin-zenityx/zenityx-a1111-runpod/blob/main/docs/RUNPOD-TH.md",
   "volumeInGb": 50,
   "volumeMountPath": "/workspace"
 }
